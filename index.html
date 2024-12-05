@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module">
+        import Chatbox from 'https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js';
+      
+        const widget = await Chatbox.initBubble({
+          agentId: 'cm4a1iktr0ks9q30mxaam1aqk',
+          
+          // optional 
+          // If provided will create a contact for the user and link it to the conversation
+          contact: {
+            firstName: 'John',
+            lastName: 'Doe',
+            email: 'customer@email.com',
+            phoneNumber: '+33612345644',
+            userId: '42424242',
+          },
+          // optional
+          // Override initial messages
+          initialMessages: [
+            'Hello Georges how are you doing today?',
+            'How can I help you ?',
+          ],
+          // optional
+          // Provided context will be appended to the Agent system prompt
+          context: "The user you are talking to is John. Start by Greeting him by his name.",
+        });
+      
+        // open the chat bubble
+        widget.open();
+      
+        // close the chat bubble
+        widget.close()
+      
+        // or 
+        widget.toggle()
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Shoe Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <div class="product-overlay">
+                        <button class="order-button" onclick="openPopup('Running Shoe', 59.99)">Order Now</button>
+                    </div>
+                    <img src="running shoes.jpg" alt="Shoe 1">
+                    <h3>Running Shoe</h3>
+                    <p>$59.99</p>
+                </div>
+                <div class="product">
+                    <div class="product-overlay">
+                        <button class="order-button" onclick="openPopup('Casual Sneaker', 49.99)">Order Now</button>
+                    </div>
+                    <img src="Casual Sneaker.jpg" alt="Shoe 2">
+                    <h3>Casual Sneaker</h3>
+                    <p>$49.99</p>
+                </div>
+                <div class="product">
+                    <div class="product-overlay">
+                        <button class="order-button" onclick="openPopup('Formal Shoe', 89.99)">Order Now</button>
+                    </div>
+                    <img src="formal shoes.jpg" alt="Shoe 3">
+                    <h3>Formal Shoe</h3>
+                    <p>$89.99</p>
+                </div>
+                <div class="product">
+                    <div class="product-overlay">
+                        <button class="order-button" onclick="openPopup('Boots', 99.99)">Order Now</button>
+                    </div>
+                    <img src="boots.jpg" alt="Shoe 4">
+                    <h3>Boots</h3>
+                    <p>$99.99</p>
+                </div>
+                <div class="product">
+                    <div class="product-overlay">
+                        <button class="order-button" onclick="openPopup('Fashion Shoes', 119.99)">Order Now</button>
+                    </div>
+                    <img src="fashion shoes.jpg" alt="Shoe 5">
+                    <h3>Fashion Shoes</h3>
+                    <p>$119.99</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Order Confirmation</h2>
+            <p id="order-details"></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Shoe Store. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
